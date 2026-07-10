@@ -10,3 +10,9 @@ ACTUALIZACIÓN
 - La etiqueta “Operación logística / Calidad, confianza y rentabilidad” queda fijada en la parte superior interna.
 - Se añadieron reglas definitivas para móvil con prioridad alta.
 - Se añadieron parámetros de versión para evitar que el navegador reutilice archivos antiguos.
+
+## Corrección V4 — Imagen completa en móvil
+- En Android y iPhone la fotografía principal ahora se muestra completa.
+- Se eliminó el recorte causado por `object-fit: cover`.
+- Se mantiene un movimiento de acercamiento muy suave para conservar el efecto premium.
+- La versión de escritorio conserva su comportamiento actual.

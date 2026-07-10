@@ -751,3 +751,51 @@ button {
     object-position: 62% center !important;
   }
 }
+
+
+/* V4 — IMAGEN COMPLETA EN CELULAR SIN PERDER EL EFECTO PREMIUM */
+@media (max-width: 767px) {
+  .hero-photo {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    min-height: 0 !important;
+    background: #050505 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    transform: scale(1) !important;
+    animation: cadayaMobileZoom 8s ease-in-out infinite alternate !important;
+  }
+
+  .hero-photo:hover img {
+    transform: scale(1) !important;
+  }
+
+  .hero-photo figcaption {
+    top: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+    max-width: none !important;
+    padding: 9px 11px 10px 13px !important;
+  }
+
+  .hero-photo figcaption strong {
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-photo figcaption span {
+    font-size: 8px !important;
+  }
+}
+
+@keyframes cadayaMobileZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.018); }
+}
