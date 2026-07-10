@@ -1,0 +1,44 @@
+CADAYA CONNECT PRO
+
+Contenido:
+- index.html
+- styles.css
+- app.js
+- grupo-cadaya.vcf
+- carpeta assets
+
+Prueba local:
+Abra index.html en Google Chrome o Microsoft Edge.
+
+Publicación:
+Suba todos los archivos y la carpeta assets al mismo directorio del hosting.
+
+Funciones incluidas:
+- Animación inicial de marca.
+- Diseño responsive para celulares.
+- Botones de web, WhatsApp, llamada, ubicaciones, correo e Instagram.
+- Descarga del contacto en formato vCard.
+- Formulario de visita comercial con envío por WhatsApp.
+- Dos sedes con enlaces a Google Maps.
+- Marcas distribuidas y marcas propias.
+- QR temporal dirigido a www.grupocadayasas.com.
+
+Nota:
+El QR puede regenerarse cuando se defina la URL pública definitiva de esta landing.
+
+
+ACTUALIZACIÓN V2
+- Se reemplazó la ilustración del montacargas por una imagen fotográfica.
+- Se corrigió el traslape entre el bloque de valores y la sección Conecta con nosotros.
+- Se ajustó la versión responsive para mantener la separación en móvil y tablet.
+
+
+ACTUALIZACIÓN MOBILE FIRST
+- Vista optimizada específicamente para Android y iPhone.
+- Soporte para áreas seguras de iPhone con notch.
+- Tipografía ajustada para evitar zoom automático en formularios de iOS.
+- Imágenes y tarjetas redimensionadas para pantallas pequeñas.
+- Barra inferior fija con WhatsApp, llamada, visita y sedes.
+- Botones táctiles de tamaño adecuado.
+- Ajustes para orientación vertical y horizontal.
+- Corrección adicional de espacios y traslapes en móvil.
