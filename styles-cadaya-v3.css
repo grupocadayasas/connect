@@ -1834,3 +1834,250 @@ body.modal-open {
     bottom: 22px;
   }
 }
+
+
+/* V17 — envío resiliente e instalación iOS */
+.pending-lead-notice {
+  margin-top: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(227,0,25,.22);
+  border-radius: 14px;
+  background: rgba(227,0,25,.06);
+  color: #661018;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.pending-lead-notice button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: #e30019;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.install-ios {
+  margin-left: 8px;
+}
+
+.ios-install-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 11500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.ios-install-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ios-install-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ios-install-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  padding: 28px 24px;
+  border-radius: 26px;
+  color: #fff;
+  background:
+    radial-gradient(circle at top, rgba(227,0,25,.16), transparent 34%),
+    linear-gradient(180deg, #171717, #080808);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 35px 90px rgba(0,0,0,.58);
+}
+
+.ios-install-card > p {
+  margin: 0 0 6px;
+  color: #e30019;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.ios-install-card h2 {
+  margin: 0 0 18px;
+  font-size: 24px;
+  line-height: 1.18;
+}
+
+.ios-install-card ol {
+  margin: 0;
+  padding-left: 22px;
+  color: #d4d4d4;
+  line-height: 1.65;
+}
+
+.ios-install-card li + li {
+  margin-top: 8px;
+}
+
+.ios-install-card #iosInstallDone {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 22px;
+  border: 0;
+  border-radius: 999px;
+  color: #111;
+  background: #fff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.ios-install-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255,255,255,.06);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .install-ios {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+
+/* V18 — medición de origen y claridad del formulario */
+.privacy-note {
+  margin: -6px 0 12px;
+  color: #777;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.lead-source-preview {
+  margin-bottom: 10px;
+  color: #777;
+  font-size: 10px;
+}
+
+.update-banner[hidden]{display:none!important}
+@media(max-width:767px){.update-banner{bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+
+
+/* V21 — Logos oficiales de las marcas distribuidas */
+.official-brand-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.official-brand-card {
+  min-height: 112px;
+  margin: 0;
+  padding: 16px 18px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #e6e6e6;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(227,0,25,.045), transparent 48%),
+    linear-gradient(180deg, #fff, #f8f8f8);
+  box-shadow: 0 9px 22px rgba(0,0,0,.05);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.official-brand-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(227,0,25,.20);
+  box-shadow: 0 15px 30px rgba(0,0,0,.09);
+}
+
+.official-brand-card img {
+  width: 100%;
+  height: 74px;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Ajustes ópticos individuales para igualar presencia visual sin deformar. */
+.brand-purina img { width: 90%; height: 62px; }
+.brand-dog-chow img { width: 94%; height: 82px; }
+.brand-cat-chow img { width: 78%; height: 84px; }
+.brand-felix img { width: 82%; height: 78px; }
+.brand-fancy-feast img { width: 92%; height: 80px; }
+.brand-excellent img { width: 96%; height: 70px; }
+.brand-pro-plan img { width: 88%; height: 76px; }
+
+@media (min-width: 1000px) {
+  .official-brand-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .official-brand-card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 6px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .official-brand-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 9px !important;
+  }
+
+  .official-brand-card {
+    min-height: 88px;
+    padding: 10px 9px;
+    border-radius: 15px;
+  }
+
+  .official-brand-card img {
+    height: 60px;
+  }
+
+  .brand-purina img { width: 94%; height: 48px; }
+  .brand-dog-chow img { width: 98%; height: 65px; }
+  .brand-cat-chow img { width: 80%; height: 66px; }
+  .brand-felix img { width: 88%; height: 62px; }
+  .brand-fancy-feast img { width: 98%; height: 62px; }
+  .brand-excellent img { width: 100%; height: 54px; }
+  .brand-pro-plan img { width: 94%; height: 58px; }
+
+  .official-brand-card:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 5px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 370px) {
+  .official-brand-gallery {
+    grid-template-columns: 1fr !important;
+  }
+
+  .official-brand-card:last-child {
+    grid-column: auto;
+    width: 100%;
+  }
+}

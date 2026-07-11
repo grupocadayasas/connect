@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#080808" />
-  <meta name="cadaya-version" content="V16-20260710" />
+  <meta name="cadaya-version" content="V21-20260710" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-16" />
+  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-21" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -217,12 +217,28 @@
               <p>Un portafolio reconocido para acompañar el crecimiento de nuestros clientes.</p>
             </div>
 
-            <div class="distributed-logos">
-              <div class="brand-chip purina"><span class="purina-mark">■</span><strong>PURINA</strong></div>
-              <div class="brand-chip dogchow"><strong>DOG CHOW</strong><small>Juntos la vida es mejor</small></div>
-              <div class="brand-chip catchow"><strong>CAT CHOW</strong></div>
-              <div class="brand-chip proplan"><strong>PRO PLAN</strong></div>
-              <div class="brand-chip felix"><strong>felix</strong></div>
+            <div class="distributed-logos official-brand-gallery" aria-label="Marcas oficiales que distribuimos">
+              <figure class="official-brand-card brand-purina">
+                <img src="assets/logo-purina-oficial.webp" loading="lazy" decoding="async" alt="Purina">
+              </figure>
+              <figure class="official-brand-card brand-dog-chow">
+                <img src="assets/logo-dog-chow-oficial.webp" loading="lazy" decoding="async" alt="Purina Dog Chow">
+              </figure>
+              <figure class="official-brand-card brand-cat-chow">
+                <img src="assets/logo-cat-chow-oficial.webp" loading="lazy" decoding="async" alt="Purina Cat Chow">
+              </figure>
+              <figure class="official-brand-card brand-felix">
+                <img src="assets/logo-felix-oficial.webp" loading="lazy" decoding="async" alt="Purina Felix">
+              </figure>
+              <figure class="official-brand-card brand-fancy-feast">
+                <img src="assets/logo-fancy-feast-oficial.webp" loading="lazy" decoding="async" alt="Purina Fancy Feast">
+              </figure>
+              <figure class="official-brand-card brand-excellent">
+                <img src="assets/logo-excellent-oficial.webp" loading="lazy" decoding="async" alt="Purina Excellent">
+              </figure>
+              <figure class="official-brand-card brand-pro-plan">
+                <img src="assets/logo-pro-plan-oficial.webp" loading="lazy" decoding="async" alt="Purina Pro Plan">
+              </figure>
             </div>
           </article>
 
@@ -337,10 +353,10 @@
 <label><input type="checkbox" name="Interes" value="Otro"><span>Otro</span></label>
 </div><small class="field-error" id="interestError"></small></fieldset>
 <label>Comentarios<textarea id="comentarios" rows="4" placeholder="Cuéntanos brevemente cómo podemos ayudarte"></textarea></label>
-<label class="check"><input id="autorizacion" type="checkbox" required><span>Autorizo el uso de mis datos para ser contactado por GRUPO CADAYA SAS.</span></label>
-<div class="lead-meta"><span>🔒 Información segura</span><span>⚡ Respuesta prioritaria</span></div>
+<label class="check"><input id="autorizacion" type="checkbox" required><span>Autorizo el uso de mis datos para ser contactado por GRUPO CADAYA SAS.</span></label><p class="privacy-note">Usaremos esta información únicamente para atender tu solicitud comercial.</p>
+<div id="leadSourcePreview" class="lead-source-preview" hidden></div><div class="lead-meta"><span>🔒 Información segura</span><span>⚡ Respuesta prioritaria</span></div>
 <button id="submitLead" type="submit" aria-describedby="formStatus"><span class="button-label">Enviar solicitud comercial</span><span class="button-loader" aria-hidden="true"></span></button>
-<p class="form-status" id="formStatus" role="status" aria-live="polite"></p><p class="form-fallback">También puedes escribir a <a href="mailto:gerentecomercial@grupocadayasas.com">gerentecomercial@grupocadayasas.com</a></p>
+<p class="form-status" id="formStatus" role="status" aria-live="polite"></p><div class="pending-lead-notice" id="pendingLeadNotice" hidden><span>Tu solicitud quedó guardada y se enviará automáticamente al recuperar conexión.</span><button id="retryPendingLead" type="button">Reintentar ahora</button></div><p class="form-fallback">También puedes escribir a <a href="mailto:gerentecomercial@grupocadayasas.com">gerentecomercial@grupocadayasas.com</a></p>
 </form>
       </div>
     </section>
@@ -350,7 +366,22 @@
 <div class="success-check">✓</div><p>Solicitud recibida</p><h2 id="successTitle">Gracias por confiar en GRUPO CADAYA SAS</h2>
 <span>Uno de nuestros asesores se comunicará contigo muy pronto.</span>
 <div class="lead-reference">Referencia: <strong id="leadReference">CAD-000000</strong></div>
-<button id="successClose">Continuar explorando</button></section></div><footer>
+<button id="successClose">Continuar explorando</button></section></div>
+  <div class="ios-install-modal" id="iosInstallModal" aria-hidden="true">
+    <div class="ios-install-backdrop"></div>
+    <section class="ios-install-card" role="dialog" aria-modal="true" aria-labelledby="iosInstallTitle">
+      <button id="iosInstallClose" class="ios-install-close" type="button" aria-label="Cerrar">×</button>
+      <p>Instalar en iPhone</p>
+      <h2 id="iosInstallTitle">Agrega CADAYA CONNECT a tu pantalla de inicio</h2>
+      <ol>
+        <li>Toca el botón <strong>Compartir</strong> de Safari.</li>
+        <li>Selecciona <strong>Agregar a pantalla de inicio</strong>.</li>
+        <li>Confirma tocando <strong>Agregar</strong>.</li>
+      </ol>
+      <button id="iosInstallDone" type="button">Entendido</button>
+    </section>
+  </div>
+<footer>
       <div class="shell footer-grid">
         <div class="qr-card">
           <img src="assets/qr-cadaya-premium-logo.png?v=20260710-11" alt="Código QR">
@@ -359,7 +390,7 @@
 
         <div class="footer-brand">
           <img src="assets/logo-cadaya.png" alt="">
-          <div><strong>GRUPO CADAYA S.A.S.</strong><span>Productos selectos para clientes selectos</span><em>Ser Cadaya es ser rentable</em><button id="installApp" class="install-app" hidden>Agregar a pantalla de inicio</button></div>
+          <div><strong>GRUPO CADAYA S.A.S.</strong><span>Productos selectos para clientes selectos</span><em>Ser Cadaya es ser rentable</em><button id="installApp" class="install-app" hidden>Agregar a pantalla de inicio</button><button id="iosInstallHelp" class="install-app install-ios" hidden>Cómo instalar en iPhone</button></div>
         </div>
       </div>
     </footer>
@@ -381,7 +412,7 @@
     </a>
   </nav>
 
-  <script src="site-config.js?v=20260710-16"></script>
-  <script src="app-cadaya-v3.js?v=20260710-16"></script>
+  <script src="site-config.js?v=20260710-21"></script>
+  <script src="app-cadaya-v3.js?v=20260710-21"></script>
 </body>
 </html>
