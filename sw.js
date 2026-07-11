@@ -1,9 +1,9 @@
-const CACHE_NAME = "cadaya-connect-v9";
+const CACHE_NAME = "cadaya-connect-v10";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles-cadaya-v3.css?v=20260710-9",
-  "./app-cadaya-v3.js?v=20260710-9",
+  "./styles-cadaya-v3.css?v=20260710-10",
+  "./app-cadaya-v3.js?v=20260710-10",
   "./manifest.webmanifest",
   "./grupo-cadaya.vcf",
   "./assets/logo-cadaya.png",
@@ -12,7 +12,8 @@ const ASSETS = [
   "./assets/cannabis-product.jpg",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
-  "./assets/og-cadaya.jpg"
+  "./assets/og-cadaya.jpg",
+  "./assets/qr-cadaya-definitivo.png"
 ];
 
 self.addEventListener("install", event => {

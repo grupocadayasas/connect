@@ -1,18 +1,24 @@
-# CADAYA CONNECT — SPRINTS V9
+# CADAYA CONNECT — SPRINTS V10
 
-Implementado:
-- Lead Center premium.
-- Envío por correo a gerenciacomercial@grupocadayasas.com.
-- Referencia automática CAD por solicitud.
-- Confirmación premium.
-- QR definitivo.
-- Pieza A5 a 300 DPI para acrílico.
-- PWA, Open Graph, caché y optimización móvil conservados.
+## Landing
+- Lead Center por correo.
+- Respuesta automática al visitante.
+- Referencia CAD por solicitud.
+- Correo alternativo visible si falla el servicio.
+- QR interno actualizado a la URL definitiva.
+- PWA, Open Graph y caché V10.
 
-IMPORTANTE:
-La primera solicitud generará un correo de activación de FormSubmit en
-gerenciacomercial@grupocadayasas.com. Debes confirmar ese correo una sola vez.
-Después, las solicitudes llegarán automáticamente.
+## Material para impresión
+- Acrilico_CADAYA_A5_300DPI.png
+- Acrilico_CADAYA_Media_Carta_300DPI.png
+- assets/qr-cadaya-definitivo.png
 
-URL:
+## Activación obligatoria del formulario
+1. Publica esta versión en GitHub Pages.
+2. Envía una solicitud de prueba.
+3. Revisa gerenciacomercial@grupocadayasas.com.
+4. Confirma el correo de activación enviado por FormSubmit.
+5. Envía una segunda prueba para verificar la recepción.
+
+URL definitiva:
 https://grupocadayasas.github.io/connect/

@@ -117,7 +117,9 @@ leadForm?.addEventListener("submit", async (event)=>{
     Comentarios:document.getElementById("comentarios").value.trim()||"Sin comentarios",
     _subject:`Nueva solicitud comercial ${ref} - CADAYA CONNECT`,
     _template:"table",
-    _captcha:"false"
+    _captcha:"false",
+    _autoresponse:"Hemos recibido tu solicitud de visita comercial. Un asesor de GRUPO CADAYA SAS se comunicará contigo muy pronto. Productos selectos para clientes selectos.",
+    Origen:"CADAYA CONNECT - Código QR"
   };
   try{
     setSubmitting(true);formStatus.textContent="Enviando solicitud…";
@@ -127,7 +129,7 @@ leadForm?.addEventListener("submit", async (event)=>{
     leadForm.reset();formStatus.textContent="";leadReference.textContent=ref;
     successModal.classList.add("show");successModal.setAttribute("aria-hidden","false");
   }catch(e){
-    formStatus.textContent="No pudimos enviar la solicitud. Intenta nuevamente o contáctanos por WhatsApp.";
+    formStatus.innerHTML='No pudimos enviar la solicitud. Intenta nuevamente o escríbenos a <a href="mailto:gerenciacomercial@grupocadayasas.com">gerenciacomercial@grupocadayasas.com</a>.';
     formStatus.classList.add("error");
   }finally{setSubmitting(false);}
 });

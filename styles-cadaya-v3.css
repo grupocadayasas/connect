@@ -1657,3 +1657,30 @@ body {
 .lead-reference{margin:20px 0;padding:12px;border-radius:14px;background:rgba(255,255,255,.07);color:#ccc;font-size:12px}.lead-reference strong{color:#fff;font-size:15px}
 #successClose{width:100%;min-height:50px;border:0;border-radius:999px;background:#fff;color:#111;font:inherit;font-weight:900;cursor:pointer}
 @keyframes cadayaSpin{to{transform:rotate(360deg)}}@media(max-width:767px){.lead-form-head{text-align:center}.lead-form-head strong{font-size:20px}.interest-grid{grid-template-columns:repeat(2,1fr)}.success-card{padding:26px 18px;border-radius:24px}.success-card h2{font-size:23px}}
+
+
+/* V10 — CIERRE COMERCIAL Y PIEZAS DE IMPRESIÓN */
+.form-fallback {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.form-fallback a,
+.form-status a {
+  color: var(--cadaya-red);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.qr-card img {
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 767px) {
+  .form-fallback {
+    font-size: 10px;
+  }
+}
