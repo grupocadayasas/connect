@@ -1,9 +1,9 @@
-const CACHE_NAME = "cadaya-connect-v10";
+const CACHE_NAME = "cadaya-connect-v12";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles-cadaya-v3.css?v=20260710-10",
-  "./app-cadaya-v3.js?v=20260710-10",
+  "./styles-cadaya-v3.css?v=20260710-12",
+  "./app-cadaya-v3.js?v=20260710-12",
   "./manifest.webmanifest",
   "./grupo-cadaya.vcf",
   "./assets/logo-cadaya.png",
@@ -13,7 +13,8 @@ const ASSETS = [
   "./assets/icon-192.png",
   "./assets/icon-512.png",
   "./assets/og-cadaya.jpg",
-  "./assets/qr-cadaya-definitivo.png"
+  "./assets/qr-cadaya-definitivo.png",
+  "./assets/qr-cadaya-premium-logo.png"
 ];
 
 self.addEventListener("install", event => {

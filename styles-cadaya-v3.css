@@ -1684,3 +1684,21 @@ body {
     font-size: 10px;
   }
 }
+
+
+/* V12 — Eliminación del bloque duplicado bajo la imagen */
+.hero {
+  padding-bottom: 170px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-bottom: 180px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-bottom: 150px;
+  }
+}
