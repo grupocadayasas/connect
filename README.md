@@ -1,26 +1,15 @@
-# connect
 
-ACTUALIZACIÓN
-- La etiqueta “Operación logística / Calidad, confianza y rentabilidad” fue movida a la parte superior interna de la imagen.
-- Se agregó estilo premium tipo vidrio, borde rojo y mejor legibilidad en móvil.
+# CADAYA CONNECT PREMIUM FINAL
 
-## Corrección V3 de caché móvil
-
-- Se renombraron CSS, JavaScript e imagen principal para obligar a Android, iPhone y GitHub Pages a cargar la versión nueva.
-- La etiqueta “Operación logística / Calidad, confianza y rentabilidad” queda fijada en la parte superior interna.
-- Se añadieron reglas definitivas para móvil con prioridad alta.
-- Se añadieron parámetros de versión para evitar que el navegador reutilice archivos antiguos.
-
-## Corrección V4 — Imagen completa en móvil
-- En Android y iPhone la fotografía principal ahora se muestra completa.
-- Se eliminó el recorte causado por `object-fit: cover`.
-- Se mantiene un movimiento de acercamiento muy suave para conservar el efecto premium.
-- La versión de escritorio conserva su comportamiento actual.
-
-## Actualización V5 — Hero móvil vertical
-- Se creó una experiencia hero exclusiva para celulares.
-- La imagen ahora usa proporción vertical 4:5 en móvil.
-- La fotografía ocupa prácticamente todo el ancho y se ve mucho más grande.
-- El texto superior usa una tarjeta específica para Android y iPhone.
-- Se mantiene un zoom suave sin recortar excesivamente.
-- La versión de escritorio conserva su diseño actual.
+Implementaciones:
+- Bienvenida elegante en la primera visita desde el QR.
+- Microinteracciones y animaciones de conversión.
+- Optimización móvil para Android y iPhone.
+- PWA con opción de agregar a pantalla de inicio.
+- Open Graph para compartir por WhatsApp.
+- Service Worker y caché de recursos.
+- Iconos de aplicación.
+- Optimización de imágenes.
+- Respeto por usuarios que prefieren menos movimiento.
+- CTA reforzado para WhatsApp y solicitud de visita.
+- Sin incluir beneficio exclusivo de convención.

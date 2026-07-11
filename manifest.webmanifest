@@ -1,0 +1,22 @@
+{
+  "name": "CADAYA CONNECT",
+  "short_name": "Cadaya",
+  "description": "GRUPO CADAYA SAS — Productos selectos para clientes selectos.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#e30019",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

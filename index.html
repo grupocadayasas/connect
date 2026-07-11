@@ -9,10 +9,24 @@
   <meta http-equiv="Expires" content="0" />
   <meta name="description" content="GRUPO CADAYA SAS — Productos selectos para clientes selectos." />
   <title>GRUPO CADAYA SAS | Conecta</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Cadaya Connect" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="GRUPO CADAYA S.A.S. | Cadaya Connect" />
+  <meta property="og:description" content="Productos selectos para clientes selectos. Ser Cadaya es ser rentable." />
+  <meta property="og:image" content="assets/og-cadaya.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+  <link rel="icon" type="image/png" href="assets/icon-192.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-5" />
+  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-8" />
 </head>
 <body>
   <div class="intro-screen" id="introScreen" aria-hidden="true">
@@ -22,6 +36,22 @@
   </div>
 
   <a class="floating-wa" href="https://wa.me/573015748739?text=Hola%20GRUPO%20CADAYA%20SAS.%20Los%20contacto%20desde%20su%20landing%20digital." target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+
+  
+  <div class="welcome-modal" id="welcomeModal" aria-hidden="true">
+    <div class="welcome-backdrop"></div>
+    <section class="welcome-card" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <button class="welcome-close" id="welcomeClose" aria-label="Cerrar">×</button>
+      <img src="assets/logo-cadaya.png" alt="GRUPO CADAYA SAS">
+      <p>Bienvenido</p>
+      <h2 id="welcomeTitle">Gracias por escanear nuestro código QR</h2>
+      <span>Descubre nuestras marcas, servicios y cómo podemos ayudarte a hacer crecer tu negocio.</span>
+      <div class="welcome-actions">
+        <button id="welcomeExplore">Explorar</button>
+        <a href="#visita" id="welcomeVisit">Solicitar visita</a>
+      </div>
+    </section>
+  </div>
 
   <main>
     <section class="hero">
@@ -95,30 +125,44 @@
 
         <div class="connect-grid">
           <a class="connect-card black reveal" href="https://www.grupocadayasas.com" target="_blank" rel="noopener">
-            <span class="icon">◎</span><strong>Página web</strong><small>Visita nuestro sitio</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 4.5 6 4.5 9S15 18 12 21M12 3c-3 3-4.5 6-4.5 9S9 18 12 21"/></svg>
+</span><strong>Página web</strong><small>Visita nuestro sitio</small><b>→</b>
           </a>
           <a class="connect-card red reveal" href="https://wa.me/573015748739?text=Hola%20GRUPO%20CADAYA%20SAS." target="_blank" rel="noopener">
-            <span class="icon">◉</span><strong>WhatsApp</strong><small>Escríbenos ahora</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.6-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.5 2.6 2.1 4.2 4.7 4.9"/></svg>
+</span><strong>WhatsApp</strong><small>Escríbenos ahora</small><b>→</b>
           </a>
           <a class="connect-card black reveal" href="tel:+573015748739">
-            <span class="icon">☎</span><strong>Llamar</strong><small>Contáctanos</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><path d="M7 3h3l1 5-2 1c1.2 2.8 3.2 4.8 6 6l1-2 5 1v3c0 2-1 3-3 3C10 20 4 14 4 6c0-2 1-3 3-3Z"/></svg>
+</span><strong>Llamar</strong><small>Contáctanos</small><b>→</b>
           </a>
           <a class="connect-card red reveal" href="#sedes">
-            <span class="icon">⌖</span><strong>Ubicaciones</strong><small>Encuéntranos</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><path d="M12 21s6-6.1 6-11a6 6 0 1 0-12 0c0 4.9 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+</span><strong>Ubicaciones</strong><small>Encuéntranos</small><b>→</b>
           </a>
           <a class="connect-card black reveal" href="mailto:gerenciacomercial@grupocadayasas.com">
-            <span class="icon">✉</span><strong>Correo</strong><small>Envíanos un e-mail</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+</span><strong>Correo</strong><small>Envíanos un e-mail</small><b>→</b>
           </a>
           <a class="connect-card instagram reveal" href="https://www.instagram.com/grupo_cadaya_s.a.s/" target="_blank" rel="noopener">
-            <span class="icon">◎</span><strong>Instagram</strong><small>Síguenos</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+</span><strong>Instagram</strong><small>Síguenos</small><b>→</b>
           </a>
           <a class="connect-card black reveal" href="grupo-cadaya.vcf" download>
-            <span class="icon">▣</span><strong>Guardar contacto</strong><small>Añade nuestros datos</small><b>→</b>
+            <span class="icon svg-icon" aria-hidden="true">
+<svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M6.5 16c.8-2 4.2-2 5 0M14 9h4M14 13h4"/></svg>
+</span><strong>Guardar contacto</strong><small>Añade nuestros datos</small><b>→</b>
           </a>
 
           <a class="visit-banner reveal" href="#visita">
             <div>
-              <span>Atención personalizada</span>
+              <span class="visit-kicker">Atención personalizada</span>
               <strong>Solicitar visita comercial</strong>
               <small>Déjanos tus datos y uno de nuestros asesores te contactará.</small>
               <em>Solicitar ahora →</em>
@@ -129,33 +173,61 @@
       </div>
     </section>
 
-    <section class="brands-section">
-      <div class="shell brands-panel reveal">
-        <div class="brands-column">
-          <p class="mini-title">Marcas <span>que distribuimos</span></p>
-          <div class="brand-logos distributed">
-            <div class="logo-word purina">PURINA</div>
-            <div class="logo-word dogchow">DOG CHOW</div>
-            <div class="logo-word catchow">CAT CHOW</div>
-            <div class="logo-word proplan">PRO PLAN</div>
-            <div class="logo-word felix">felix</div>
-          </div>
+    <section class="brands-section" id="marcas">
+      <div class="shell">
+        <div class="section-title reveal">
+          <p>Portafolio comercial</p>
+          <h2>Marcas que generan <span>confianza</span></h2>
         </div>
 
-        <div class="brands-divider"></div>
+        <div class="brands-premium-grid">
+          <article class="distributed-panel reveal">
+            <div class="brand-panel-head">
+              <span>Distribución autorizada</span>
+              <h3>Marcas que distribuimos</h3>
+              <p>Un portafolio reconocido para acompañar el crecimiento de nuestros clientes.</p>
+            </div>
 
-        <div class="brands-column">
-          <p class="mini-title">Nuestras <span>marcas propias</span></p>
-          <div class="owned-brands">
-            <figure>
-              <img src="assets/vivedog.png" alt="ViveDog">
-              <figcaption>ViveDog</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/cannabis.png" alt="Cannabis CBD veterinario">
-              <figcaption>Cannabis CBD</figcaption>
-            </figure>
-          </div>
+            <div class="distributed-logos">
+              <div class="brand-chip purina"><span class="purina-mark">■</span><strong>PURINA</strong></div>
+              <div class="brand-chip dogchow"><strong>DOG CHOW</strong><small>Juntos la vida es mejor</small></div>
+              <div class="brand-chip catchow"><strong>CAT CHOW</strong></div>
+              <div class="brand-chip proplan"><strong>PRO PLAN</strong></div>
+              <div class="brand-chip felix"><strong>felix</strong></div>
+            </div>
+          </article>
+
+          <article class="owned-panel reveal">
+            <div class="brand-panel-head">
+              <span>Innovación Cadaya</span>
+              <h3>Nuestras marcas propias</h3>
+              <p>Productos desarrollados para aportar bienestar y valor al mercado de mascotas.</p>
+            </div>
+
+            <div class="owned-product-grid">
+              <figure class="product-card">
+                <div class="product-image-wrap">
+                  <img src="assets/vivedog-product.jpg" alt="ViveDog, soporte articular avanzado">
+                </div>
+                <figcaption>
+                  <span>Marca propia</span>
+                  <strong>ViveDog</strong>
+                  <small>Soporte articular avanzado</small>
+                </figcaption>
+              </figure>
+
+              <figure class="product-card">
+                <div class="product-image-wrap">
+                  <img src="assets/cannabis-product.jpg" alt="Cannabis CBD veterinario">
+                </div>
+                <figcaption>
+                  <span>Marca propia</span>
+                  <strong>Cannabis CBD</strong>
+                  <small>Formulación magistral veterinaria</small>
+                </figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -240,7 +312,7 @@
 
         <div class="footer-brand">
           <img src="assets/logo-cadaya.png" alt="">
-          <div><strong>GRUPO CADAYA S.A.S.</strong><span>Productos selectos para clientes selectos</span><em>Ser Cadaya es ser rentable</em></div>
+          <div><strong>GRUPO CADAYA S.A.S.</strong><span>Productos selectos para clientes selectos</span><em>Ser Cadaya es ser rentable</em><button id="installApp" class="install-app" hidden>Agregar a pantalla de inicio</button></div>
         </div>
       </div>
     </footer>
@@ -262,6 +334,6 @@
     </a>
   </nav>
 
-  <script src="app-cadaya-v3.js?v=20260710-3"></script>
+  <script src="app-cadaya-v3.js?v=20260710-8"></script>
 </body>
 </html>

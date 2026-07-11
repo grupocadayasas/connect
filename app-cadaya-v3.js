@@ -47,3 +47,62 @@ function setMobileViewportHeight() {
 setMobileViewportHeight();
 window.addEventListener("resize", setMobileViewportHeight);
 window.addEventListener("orientationchange", setMobileViewportHeight);
+
+
+// CADAYA CONNECT PREMIUM — bienvenida de primera visita
+const welcomeModal = document.getElementById("welcomeModal");
+const welcomeClose = document.getElementById("welcomeClose");
+const welcomeExplore = document.getElementById("welcomeExplore");
+const welcomeVisit = document.getElementById("welcomeVisit");
+
+function closeWelcome() {
+  welcomeModal?.classList.remove("show");
+  welcomeModal?.setAttribute("aria-hidden", "true");
+  localStorage.setItem("cadayaWelcomeSeen", "1");
+}
+
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("cadayaWelcomeSeen")) {
+    setTimeout(() => {
+      welcomeModal?.classList.add("show");
+      welcomeModal?.setAttribute("aria-hidden", "false");
+    }, 2200);
+  }
+});
+
+welcomeClose?.addEventListener("click", closeWelcome);
+welcomeExplore?.addEventListener("click", closeWelcome);
+welcomeVisit?.addEventListener("click", closeWelcome);
+welcomeModal?.querySelector(".welcome-backdrop")?.addEventListener("click", closeWelcome);
+
+// PWA
+let deferredPrompt;
+const installButton = document.getElementById("installApp");
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  if (installButton) installButton.hidden = false;
+});
+
+installButton?.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  installButton.hidden = true;
+});
+
+window.addEventListener("appinstalled", () => {
+  if (installButton) installButton.hidden = true;
+});
+
+// Service worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+
+// Destacar CTA comercial sin saturar
+document.querySelector(".visit-banner")?.classList.add("pulse-conversion");
