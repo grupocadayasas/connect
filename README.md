@@ -1,15 +1,18 @@
+# CADAYA CONNECT — SPRINTS V9
 
-# CADAYA CONNECT PREMIUM FINAL
+Implementado:
+- Lead Center premium.
+- Envío por correo a gerenciacomercial@grupocadayasas.com.
+- Referencia automática CAD por solicitud.
+- Confirmación premium.
+- QR definitivo.
+- Pieza A5 a 300 DPI para acrílico.
+- PWA, Open Graph, caché y optimización móvil conservados.
 
-Implementaciones:
-- Bienvenida elegante en la primera visita desde el QR.
-- Microinteracciones y animaciones de conversión.
-- Optimización móvil para Android y iPhone.
-- PWA con opción de agregar a pantalla de inicio.
-- Open Graph para compartir por WhatsApp.
-- Service Worker y caché de recursos.
-- Iconos de aplicación.
-- Optimización de imágenes.
-- Respeto por usuarios que prefieren menos movimiento.
-- CTA reforzado para WhatsApp y solicitud de visita.
-- Sin incluir beneficio exclusivo de convención.
+IMPORTANTE:
+La primera solicitud generará un correo de activación de FormSubmit en
+gerenciacomercial@grupocadayasas.com. Debes confirmar ese correo una sola vez.
+Después, las solicitudes llegarán automáticamente.
+
+URL:
+https://grupocadayasas.github.io/connect/

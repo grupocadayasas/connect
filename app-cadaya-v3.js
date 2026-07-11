@@ -10,35 +10,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-document.getElementById("visitForm").addEventListener("submit", (event) => {
-  event.preventDefault();
 
-  const data = {
-    nombre: document.getElementById("nombre").value.trim(),
-    empresa: document.getElementById("empresa").value.trim(),
-    ciudad: document.getElementById("ciudad").value.trim(),
-    telefono: document.getElementById("telefono").value.trim(),
-    correo: document.getElementById("correo").value.trim(),
-    interes: document.getElementById("interes").value.trim()
-  };
-
-  const message = [
-    "Hola GRUPO CADAYA SAS.",
-    "",
-    "Deseo solicitar una visita comercial.",
-    "",
-    `Nombre: ${data.nombre}`,
-    `Empresa o establecimiento: ${data.empresa}`,
-    `Ciudad: ${data.ciudad}`,
-    `Teléfono: ${data.telefono}`,
-    `Correo: ${data.correo || "No informado"}`,
-    `Interés: ${data.interes || "No informado"}`,
-    "",
-    "Solicitud enviada desde CADAYA CONNECT."
-  ].join("\n");
-
-  window.open(`https://wa.me/573015748739?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-});
 
 // Mejora de altura útil en navegadores móviles (Safari/Chrome).
 function setMobileViewportHeight() {
@@ -106,3 +78,56 @@ if ("serviceWorker" in navigator) {
 
 // Destacar CTA comercial sin saturar
 document.querySelector(".visit-banner")?.classList.add("pulse-conversion");
+
+const leadForm = document.getElementById("visitForm");
+const submitLead = document.getElementById("submitLead");
+const formStatus = document.getElementById("formStatus");
+const successModal = document.getElementById("successModal");
+const successClose = document.getElementById("successClose");
+const leadReference = document.getElementById("leadReference");
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/gerenciacomercial@grupocadayasas.com";
+
+function generateLeadId(){return `CAD-${Date.now().toString().slice(-6)}${Math.floor(Math.random()*90+10)}`;}
+function selectedInterests(){return [...document.querySelectorAll('input[name="Interes"]:checked')].map(i=>i.value);}
+function setSubmitting(v){submitLead.disabled=v;submitLead.classList.toggle("loading",v);}
+function closeSuccess(){successModal.classList.remove("show");successModal.setAttribute("aria-hidden","true");}
+successClose?.addEventListener("click",closeSuccess);
+successModal?.querySelector(".success-backdrop")?.addEventListener("click",closeSuccess);
+
+leadForm?.addEventListener("submit", async (event)=>{
+  event.preventDefault();
+  formStatus.textContent="";
+  formStatus.classList.remove("error");
+  if(document.getElementById("honeyField").value) return;
+  const interests=selectedInterests();
+  if(!leadForm.checkValidity()){leadForm.reportValidity();return;}
+  if(!interests.length){document.getElementById("interestError").textContent="Selecciona al menos una opción.";return;}
+  document.getElementById("interestError").textContent="";
+  const ref=generateLeadId();
+  const payload={
+    Referencia:ref,
+    Fecha:new Date().toLocaleString("es-CO",{timeZone:"America/Bogota"}),
+    Nombre:document.getElementById("nombre").value.trim(),
+    Empresa:document.getElementById("empresa").value.trim(),
+    Ciudad:document.getElementById("ciudad").value.trim(),
+    Cargo:document.getElementById("cargo").value.trim()||"No informado",
+    Celular:document.getElementById("telefono").value.trim(),
+    Correo:document.getElementById("correo").value.trim(),
+    Interes:interests.join(", "),
+    Comentarios:document.getElementById("comentarios").value.trim()||"Sin comentarios",
+    _subject:`Nueva solicitud comercial ${ref} - CADAYA CONNECT`,
+    _template:"table",
+    _captcha:"false"
+  };
+  try{
+    setSubmitting(true);formStatus.textContent="Enviando solicitud…";
+    const response=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)});
+    if(!response.ok) throw new Error();
+    localStorage.setItem("cadayaLastLead",JSON.stringify(payload));
+    leadForm.reset();formStatus.textContent="";leadReference.textContent=ref;
+    successModal.classList.add("show");successModal.setAttribute("aria-hidden","false");
+  }catch(e){
+    formStatus.textContent="No pudimos enviar la solicitud. Intenta nuevamente o contáctanos por WhatsApp.";
+    formStatus.classList.add("error");
+  }finally{setSubmitting(false);}
+});

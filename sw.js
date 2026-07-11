@@ -1,9 +1,9 @@
-const CACHE_NAME = "cadaya-connect-v8";
+const CACHE_NAME = "cadaya-connect-v9";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles-cadaya-v3.css?v=20260710-8",
-  "./app-cadaya-v3.js?v=20260710-8",
+  "./styles-cadaya-v3.css?v=20260710-9",
+  "./app-cadaya-v3.js?v=20260710-9",
   "./manifest.webmanifest",
   "./grupo-cadaya.vcf",
   "./assets/logo-cadaya.png",

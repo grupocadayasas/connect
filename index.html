@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-8" />
+  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-9" />
 </head>
 <body>
   <div class="intro-screen" id="introScreen" aria-hidden="true">
@@ -279,7 +279,7 @@
         <div class="form-copy reveal">
           <p class="overline">Haz crecer tu negocio</p>
           <h2>Solicita una <span>visita comercial</span></h2>
-          <p>Completa el formulario y abriremos WhatsApp con tu información organizada para que nuestro equipo pueda atenderte rápidamente.</p>
+          <p>Completa el formulario y enviaremos tu solicitud directamente al correo de Gerencia Comercial.</p>
           <div class="contact-list">
             <span>301 574 8739</span>
             <span>313 767 2342</span>
@@ -288,22 +288,40 @@
           </div>
         </div>
 
-        <form id="visitForm" class="visit-form reveal">
-          <div class="field-grid">
-            <label>Nombre completo *<input id="nombre" required></label>
-            <label>Empresa o establecimiento *<input id="empresa" required></label>
-            <label>Ciudad *<input id="ciudad" required></label>
-            <label>Teléfono *<input id="telefono" type="tel" required></label>
-          </div>
-          <label>Correo electrónico<input id="correo" type="email"></label>
-          <label>¿Qué productos o servicios te interesan?<textarea id="interes" rows="4"></textarea></label>
-          <label class="check"><input id="autorizacion" type="checkbox" required><span>Autorizo el uso de mis datos para ser contactado por GRUPO CADAYA SAS.</span></label>
-          <button type="submit">Solicitar visita por WhatsApp →</button>
-        </form>
+        <form id="visitForm" class="visit-form reveal" novalidate>
+<div class="lead-form-head"><span>Lead Center CADAYA</span><strong>Solicitud de visita comercial</strong><small>La información llegará directamente a Gerencia Comercial.</small></div>
+<input type="text" id="honeyField" class="honey-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="field-grid">
+<label>Nombre completo *<input id="nombre" required autocomplete="name" placeholder="Tu nombre"></label>
+<label>Empresa o establecimiento *<input id="empresa" required autocomplete="organization" placeholder="Nombre del negocio"></label>
+<label>Ciudad *<input id="ciudad" required autocomplete="address-level2" placeholder="Ciudad"></label>
+<label>Cargo<input id="cargo" autocomplete="organization-title" placeholder="Ej. Propietario, administrador"></label>
+<label>Celular *<input id="telefono" type="tel" inputmode="tel" required autocomplete="tel" placeholder="300 000 0000"></label>
+<label>Correo electrónico *<input id="correo" type="email" required autocomplete="email" placeholder="correo@empresa.com"></label>
+</div>
+<fieldset class="interest-fieldset"><legend>¿Qué te interesa? *</legend>
+<div class="interest-grid">
+<label><input type="checkbox" name="Interes" value="Purina"><span>Purina</span></label>
+<label><input type="checkbox" name="Interes" value="ViveDog"><span>ViveDog</span></label>
+<label><input type="checkbox" name="Interes" value="Cannabis CBD"><span>Cannabis CBD</span></label>
+<label><input type="checkbox" name="Interes" value="Distribución"><span>Distribución</span></label>
+<label><input type="checkbox" name="Interes" value="Otro"><span>Otro</span></label>
+</div><small class="field-error" id="interestError"></small></fieldset>
+<label>Comentarios<textarea id="comentarios" rows="4" placeholder="Cuéntanos brevemente cómo podemos ayudarte"></textarea></label>
+<label class="check"><input id="autorizacion" type="checkbox" required><span>Autorizo el uso de mis datos para ser contactado por GRUPO CADAYA SAS.</span></label>
+<div class="lead-meta"><span>🔒 Información segura</span><span>⚡ Respuesta prioritaria</span></div>
+<button id="submitLead" type="submit"><span class="button-label">Solicitar visita comercial</span><span class="button-loader" aria-hidden="true"></span></button>
+<p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+</form>
       </div>
     </section>
 
-    <footer>
+    <div class="success-modal" id="successModal" aria-hidden="true">
+<div class="success-backdrop"></div><section class="success-card" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+<div class="success-check">✓</div><p>Solicitud recibida</p><h2 id="successTitle">Gracias por confiar en GRUPO CADAYA SAS</h2>
+<span>Uno de nuestros asesores se comunicará contigo muy pronto.</span>
+<div class="lead-reference">Referencia: <strong id="leadReference">CAD-000000</strong></div>
+<button id="successClose">Continuar explorando</button></section></div><footer>
       <div class="shell footer-grid">
         <div class="qr-card">
           <img src="assets/qr-cadaya.png" alt="Código QR">
@@ -334,6 +352,6 @@
     </a>
   </nav>
 
-  <script src="app-cadaya-v3.js?v=20260710-8"></script>
+  <script src="app-cadaya-v3.js?v=20260710-9"></script>
 </body>
 </html>
