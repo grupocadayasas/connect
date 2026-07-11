@@ -44,5 +44,5 @@ window.CADAYA_CONFIG = {
     "endpoint": "https://formsubmit.co/ajax/gerentecomercial@grupocadayasas.com",
     "minimumCompletionSeconds": 3
   },
-  "version": "V15-20260710"
+  "version": "V16-20260710"
 };

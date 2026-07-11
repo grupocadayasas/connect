@@ -135,10 +135,10 @@ leadForm?.addEventListener("submit", async (event)=>{
   };
   try{
     setSubmitting(true);formStatus.textContent="Enviando solicitud…";
-    const response=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)});
+    const response=await fetchWithTimeout(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)},12000);
     if(!response.ok) throw new Error();
     localStorage.setItem("cadayaLastLead",JSON.stringify(payload));
-    leadForm.reset();formStatus.textContent="";leadReference.textContent=ref;
+    leadForm.reset();sessionStorage.removeItem(FORM_DRAFT_KEY);formStatus.textContent="";leadReference.textContent=ref;
     successModal.classList.add("show");successModal.setAttribute("aria-hidden","false");
   }catch(e){
     formStatus.innerHTML='No pudimos enviar la solicitud. Intenta nuevamente o escríbenos a <a href="mailto:gerentecomercial@grupocadayasas.com">gerentecomercial@grupocadayasas.com</a>.';
@@ -194,3 +194,84 @@ leadForm?.addEventListener("submit", (event) => {
   }
   lastSubmitAt = now;
 }, true);
+
+
+// V16 — estabilidad de producción
+const networkBanner = document.getElementById("networkBanner");
+const updateBanner = document.getElementById("updateBanner");
+const reloadUpdate = document.getElementById("reloadUpdate");
+const FORM_DRAFT_KEY = "cadayaLeadDraftV16";
+
+function updateNetworkState() {
+  const offline = !navigator.onLine;
+  if (networkBanner) networkBanner.hidden = !offline;
+  if (submitLead) submitLead.disabled = offline;
+  if (offline && formStatus) {
+    formStatus.textContent = "Sin conexión. Tus datos permanecerán guardados en este dispositivo.";
+  } else if (formStatus?.textContent?.startsWith("Sin conexión")) {
+    formStatus.textContent = "";
+  }
+}
+
+window.addEventListener("online", updateNetworkState);
+window.addEventListener("offline", updateNetworkState);
+updateNetworkState();
+
+function saveLeadDraft() {
+  if (!leadForm) return;
+  const draft = {
+    nombre: document.getElementById("nombre")?.value || "",
+    empresa: document.getElementById("empresa")?.value || "",
+    ciudad: document.getElementById("ciudad")?.value || "",
+    cargo: document.getElementById("cargo")?.value || "",
+    telefono: document.getElementById("telefono")?.value || "",
+    correo: document.getElementById("correo")?.value || "",
+    comentarios: document.getElementById("comentarios")?.value || "",
+    intereses: selectedInterests()
+  };
+  sessionStorage.setItem(FORM_DRAFT_KEY, JSON.stringify(draft));
+}
+
+function restoreLeadDraft() {
+  if (!leadForm) return;
+  try {
+    const draft = JSON.parse(sessionStorage.getItem(FORM_DRAFT_KEY) || "null");
+    if (!draft) return;
+
+    ["nombre","empresa","ciudad","cargo","telefono","correo","comentarios"].forEach((id) => {
+      const field = document.getElementById(id);
+      if (field && draft[id]) field.value = draft[id];
+    });
+
+    document.querySelectorAll('input[name="Interes"]').forEach((input) => {
+      input.checked = Array.isArray(draft.intereses) && draft.intereses.includes(input.value);
+    });
+  } catch (_) {}
+}
+
+leadForm?.addEventListener("input", saveLeadDraft);
+leadForm?.addEventListener("change", saveLeadDraft);
+restoreLeadDraft();
+
+successClose?.addEventListener("click", () => {
+  sessionStorage.removeItem(FORM_DRAFT_KEY);
+});
+
+reloadUpdate?.addEventListener("click", () => window.location.reload());
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (updateBanner) updateBanner.hidden = false;
+  });
+}
+
+// Reusable fetch timeout for slow event networks
+async function fetchWithTimeout(url, options = {}, timeoutMs = 12000) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}

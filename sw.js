@@ -1,8 +1,8 @@
-const CACHE_NAME = "cadaya-connect-v15";
+const CACHE_NAME = "cadaya-connect-v16";
 const STATIC_ASSETS = [
-  "./styles-cadaya-v3.css?v=20260710-15",
-  "./site-config.js?v=20260710-15",
-  "./app-cadaya-v3.js?v=20260710-15",
+  "./styles-cadaya-v3.css?v=20260710-16",
+  "./site-config.js?v=20260710-16",
+  "./app-cadaya-v3.js?v=20260710-16",
   "./manifest.webmanifest",
   "./grupo-cadaya.vcf",
   "./robots.txt",

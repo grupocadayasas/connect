@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#080808" />
-  <meta name="cadaya-version" content="V15-20260710" />
+  <meta name="cadaya-version" content="V16-20260710" />
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-15" />
+  <link rel="stylesheet" href="styles-cadaya-v3.css?v=20260710-16" />
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -86,6 +86,15 @@
         <a href="#visita" id="welcomeVisit">Solicitar visita</a>
       </div>
     </section>
+  </div>
+
+  
+  <div class="network-banner" id="networkBanner" role="status" aria-live="polite" hidden>
+    Sin conexión. Puedes seguir navegando; el formulario se enviará cuando recuperes internet.
+  </div>
+  <div class="update-banner" id="updateBanner" role="status" aria-live="polite" hidden>
+    <span>Hay una versión nueva disponible.</span>
+    <button id="reloadUpdate" type="button">Actualizar</button>
   </div>
 
   <main>
@@ -372,7 +381,7 @@
     </a>
   </nav>
 
-  <script src="site-config.js?v=20260710-15"></script>
-  <script src="app-cadaya-v3.js?v=20260710-15"></script>
+  <script src="site-config.js?v=20260710-16"></script>
+  <script src="app-cadaya-v3.js?v=20260710-16"></script>
 </body>
 </html>
