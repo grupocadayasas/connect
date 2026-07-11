@@ -85,7 +85,9 @@ const formStatus = document.getElementById("formStatus");
 const successModal = document.getElementById("successModal");
 const successClose = document.getElementById("successClose");
 const leadReference = document.getElementById("leadReference");
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/gerenciacomercial@grupocadayasas.com";
+const FORM_ENDPOINT = window.CADAYA_CONFIG?.form?.endpoint || "https://formsubmit.co/ajax/gerentecomercial@grupocadayasas.com";
+const FORM_MIN_SECONDS = window.CADAYA_CONFIG?.form?.minimumCompletionSeconds || 3;
+const formOpenedAt = Date.now();
 
 function generateLeadId(){return `CAD-${Date.now().toString().slice(-6)}${Math.floor(Math.random()*90+10)}`;}
 function selectedInterests(){return [...document.querySelectorAll('input[name="Interes"]:checked')].map(i=>i.value);}
@@ -103,6 +105,16 @@ leadForm?.addEventListener("submit", async (event)=>{
   if(!leadForm.checkValidity()){leadForm.reportValidity();return;}
   if(!interests.length){document.getElementById("interestError").textContent="Selecciona al menos una opción.";return;}
   document.getElementById("interestError").textContent="";
+  const elapsedSeconds = (Date.now() - formOpenedAt) / 1000;
+  if (elapsedSeconds < FORM_MIN_SECONDS) {
+    formStatus.textContent = "Espera un momento y vuelve a enviar la solicitud.";
+    formStatus.classList.add("error");
+    return;
+  }
+
+  const phoneInput = document.getElementById("telefono");
+  phoneInput.value = phoneInput.value.replace(/[^0-9+\s()-]/g, "").trim();
+
   const ref=generateLeadId();
   const payload={
     Referencia:ref,
@@ -129,7 +141,56 @@ leadForm?.addEventListener("submit", async (event)=>{
     leadForm.reset();formStatus.textContent="";leadReference.textContent=ref;
     successModal.classList.add("show");successModal.setAttribute("aria-hidden","false");
   }catch(e){
-    formStatus.innerHTML='No pudimos enviar la solicitud. Intenta nuevamente o escríbenos a <a href="mailto:gerenciacomercial@grupocadayasas.com">gerenciacomercial@grupocadayasas.com</a>.';
+    formStatus.innerHTML='No pudimos enviar la solicitud. Intenta nuevamente o escríbenos a <a href="mailto:gerentecomercial@grupocadayasas.com">gerentecomercial@grupocadayasas.com</a>.';
     formStatus.classList.add("error");
   }finally{setSubmitting(false);}
 });
+
+
+// V14 — accesibilidad y robustez
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+
+  if (welcomeModal?.classList.contains("show")) {
+    closeWelcome();
+  }
+
+  if (successModal?.classList.contains("show")) {
+    closeSuccess();
+  }
+});
+
+document.querySelectorAll('input[name="Interes"]').forEach((input) => {
+  input.addEventListener("change", () => {
+    const error = document.getElementById("interestError");
+    if (selectedInterests().length && error) error.textContent = "";
+  });
+});
+
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  const current = link.getAttribute("rel") || "";
+  if (!current.includes("noopener")) link.setAttribute("rel", `${current} noopener`.trim());
+  if (!current.includes("noreferrer")) link.setAttribute("rel", `${link.getAttribute("rel")} noreferrer`.trim());
+});
+
+
+// V15 — configuración centralizada y mantenimiento
+(function hydrateCompanyConfig() {
+  const cfg = window.CADAYA_CONFIG?.company;
+  if (!cfg) return;
+
+  document.querySelectorAll('[data-current-year]').forEach((el) => {
+    el.textContent = new Date().getFullYear();
+  });
+})();
+
+// Prevent accidental duplicate submissions caused by fast double taps
+let lastSubmitAt = 0;
+leadForm?.addEventListener("submit", (event) => {
+  const now = Date.now();
+  if (now - lastSubmitAt < 1500) {
+    event.preventDefault();
+    return;
+  }
+  lastSubmitAt = now;
+}, true);

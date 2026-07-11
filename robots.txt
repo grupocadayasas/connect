@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://grupocadayasas.github.io/connect/sitemap.xml

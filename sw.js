@@ -1,23 +1,24 @@
-const CACHE_NAME = "cadaya-connect-v13";
+const CACHE_NAME = "cadaya-connect-v15";
 const STATIC_ASSETS = [
-  "./styles-cadaya-v3.css?v=20260710-13",
-  "./app-cadaya-v3.js?v=20260710-13",
+  "./styles-cadaya-v3.css?v=20260710-15",
+  "./site-config.js?v=20260710-15",
+  "./app-cadaya-v3.js?v=20260710-15",
   "./manifest.webmanifest",
   "./grupo-cadaya.vcf",
+  "./robots.txt",
+  "./sitemap.xml",
   "./assets/logo-cadaya.png",
-  "./assets/hero-bodega-v3.jpg?v=20260710-3",
-  "./assets/vivedog-product.jpg",
-  "./assets/cannabis-product.jpg",
+  "./assets/hero-bodega-v14.webp",
+  "./assets/vivedog-product-v14.webp",
+  "./assets/cannabis-product-v14.webp",
   "./assets/icon-192.png",
   "./assets/icon-512.png",
-  "./assets/og-cadaya.jpg",
+  "./assets/og-cadaya-v14.webp",
   "./assets/qr-cadaya-premium-logo.png?v=20260710-11"
 ];
 
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS)));
   self.skipWaiting();
 });
 
