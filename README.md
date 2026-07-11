@@ -16,3 +16,11 @@ ACTUALIZACIÓN
 - Se eliminó el recorte causado por `object-fit: cover`.
 - Se mantiene un movimiento de acercamiento muy suave para conservar el efecto premium.
 - La versión de escritorio conserva su comportamiento actual.
+
+## Actualización V5 — Hero móvil vertical
+- Se creó una experiencia hero exclusiva para celulares.
+- La imagen ahora usa proporción vertical 4:5 en móvil.
+- La fotografía ocupa prácticamente todo el ancho y se ve mucho más grande.
+- El texto superior usa una tarjeta específica para Android y iPhone.
+- Se mantiene un zoom suave sin recortar excesivamente.
+- La versión de escritorio conserva su diseño actual.

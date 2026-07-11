@@ -799,3 +799,107 @@ button {
   from { transform: scale(1); }
   to   { transform: scale(1.018); }
 }
+
+
+/* V5 — EXPERIENCIA MÓVIL DEDICADA CON HERO VERTICAL */
+.mobile-hero-badge {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hero-grid {
+    gap: 18px !important;
+  }
+
+  .hero-visual {
+    width: 100% !important;
+  }
+
+  .hero-photo {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    border-radius: 24px !important;
+    background: #050505 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255,255,255,.14) !important;
+    box-shadow: 0 24px 55px rgba(0,0,0,.45) !important;
+  }
+
+  .hero-photo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 34% !important;
+    transform: scale(1.01) !important;
+    animation: cadayaMobilePortraitZoom 9s ease-in-out infinite alternate !important;
+  }
+
+  .hero-photo:hover img {
+    transform: scale(1.01) !important;
+  }
+
+  /* Ocultamos la etiqueta de escritorio y usamos una etiqueta específica para móvil. */
+  .hero-photo figcaption {
+    display: none !important;
+  }
+
+  .mobile-hero-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 60;
+    display: grid;
+    gap: 4px;
+    padding: 11px 13px 12px 15px;
+    background: linear-gradient(135deg, rgba(6,6,6,.90), rgba(20,20,20,.68));
+    border: 1px solid rgba(255,255,255,.16);
+    border-left: 4px solid #e30019;
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.38);
+    color: #fff;
+    text-align: left;
+  }
+
+  .mobile-hero-badge span {
+    color: #ff3346;
+    font-size: 9px;
+    line-height: 1.2;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .mobile-hero-badge strong {
+    color: #fff;
+    font-size: clamp(14px, 4.2vw, 18px);
+    line-height: 1.16;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .hero-photo-shade {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.18) 0%, transparent 24%, transparent 66%, rgba(0,0,0,.60) 100%) !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-photo {
+    aspect-ratio: 3 / 4 !important;
+  }
+
+  .mobile-hero-badge strong {
+    font-size: 13px;
+  }
+}
+
+@keyframes cadayaMobilePortraitZoom {
+  from { transform: scale(1.01); }
+  to   { transform: scale(1.045); }
+}
